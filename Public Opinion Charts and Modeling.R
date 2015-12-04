@@ -157,6 +157,7 @@ p7 <- ggplot(mod1frame, aes(ann)) +
   theme(panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) + 
   theme(axis.title.x = element_blank()) +
   theme(axis.title.y = element_blank())
+  
 # Show different graphs together
 
 grid.arrange(p1, p2, ncol=1)
