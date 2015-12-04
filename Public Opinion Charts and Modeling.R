@@ -24,8 +24,8 @@ p1 <- ggplot(drugplotWorry, aes(x)) +
   geom_line(aes(y = y3, colour = "Only a little")) + 
   geom_line(aes(y = y4, colour = "Not at all")) + 
   ggtitle("Personal worry about drug use in America") +
-  scale_x_continuous(breaks = c(2001,2005,2010,2015),limits=c(2001,2015))+
-  scale_y_continuous(breaks = c(0,10,20,30,40,50,60),limits=c(0,60))+
+  scale_x_continuous(breaks = c(2001,2005,2010,2015),limits = c(2001,2015))+
+  scale_y_continuous(breaks = c(0,10,20,30,40,50,60),limits = c(0,60))+
   theme_bw() + 
   theme(panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
   theme(axis.title.x = element_blank()) +
@@ -93,7 +93,7 @@ drugplotMostProblem <- data.frame(xsch, ysch)
 p4 <- ggplot(drugplotMostProblem, aes(xyr)) +       
   geom_line(aes(y = ysch), colour="black") +        
   ggtitle("Drugs Most Serious Problem in Schools") +
-  scale_x_continuous(breaks = c(1990,1995,2000,2005,2010),limits=c(1989,2010))+
+  scale_x_continuous(breaks = c(1990,1995,2000,2005,2010),limits = c(1989,2010))+
   ylim(c(0,40)) +
   theme_bw() + 
   theme(panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
@@ -120,8 +120,8 @@ mod1frame <- data.frame(ann,pmp,pmood,arrests,pun,sch)
 p5 <- ggplot(mod1frame, aes(ann)) +      
   geom_line(aes(y = pun), colour = "purple") +      
   ggtitle("Public Punitiveness") +
-  scale_x_continuous(breaks = c(1990,1995,2000,2005,2010),limits=c(1989,2010))+
-  scale_y_continuous(breaks = c(0,25,50,75),limits=c(0,75))+
+  scale_x_continuous(breaks = c(1990,1995,2000,2005,2010),limits = c(1989,2010))+
+  scale_y_continuous(breaks = c(0,25,50,75),limits = c(0,75))+
   theme_bw() + 
   theme(panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) + 
   theme(axis.title.x = element_blank()) +
@@ -146,8 +146,8 @@ drugplotRate <- data.frame(xpyr, ypp)
 p6 <- ggplot(drugplotRate, aes(xpyr)) +      
   geom_line(aes(y = ypp), colour="purple") +      
   ggtitle("Drug Possesion/Use Arrest rate per 100,000") +
-  scale_x_continuous(breaks = c(1990,1995,2000,2005,2010),limits=c(1990,2010))+
-  scale_y_continuous(breaks = c(0,100,200,300,400,500,600),limits=c(0,600))+
+  scale_x_continuous(breaks = c(1990,1995,2000,2005,2010),limits = c(1990,2010))+
+  scale_y_continuous(breaks = c(0,100,200,300,400,500,600),limits = c(0,600))+
   theme_bw() + 
   theme(panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) + 
   theme(axis.title.x = element_blank()) +
