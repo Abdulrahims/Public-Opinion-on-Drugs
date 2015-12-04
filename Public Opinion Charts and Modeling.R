@@ -5,9 +5,9 @@ library(reshape)
 library(gridExtra)
 library(xlsx)
 
-#Source: http://www.albany.edu/sourcebook/ind/DRUGS.Public_opinion.1.html
+#Constructing plot 1: Level of personal worry about drug use
 
-# Constructing plot 1: Level of personal worry about drug use
+#Source: http://www.albany.edu/sourcebook/ind/DRUGS.Public_opinion.1.html
 
 drugsWorry <- read.xlsx("Drugs.xlsx", sheetIndex = 1)
 
@@ -31,7 +31,7 @@ p1 <- ggplot(drugplotWorry, aes(x)) +
   theme(axis.title.x = element_blank()) +
   theme(axis.title.y = element_blank())
 
-# Constructing plot 2: Opinon on the severity of the drug problem in America
+#Constructing plot 2: Opinon on the severity of the drug problem in America
 
 #Source: http://www.albany.edu/sourcebook/ind/DRUGS.Public_opinion.1.html
 
@@ -60,7 +60,7 @@ p2 <- ggplot(drugplotProblem, aes(xyear)) +
   theme(axis.title.x = element_blank()) +
   theme(axis.title.y = element_blank()) 
 
-# Constructing plot 3: Percantage of people describing drug abuse as the most serious problem facing America
+#Constructing plot 3: Percantage of people describing drug abuse as the most serious problem facing America
 
 #Source: http://www.albany.edu/sourcebook/ind/DRUGS.Public_opinion.1.html
 
@@ -80,7 +80,7 @@ p3 <- ggplot(drugplotMostProblem, aes(xyr)) +
   theme(axis.title.x = element_blank()) +
   theme(axis.title.y = element_blank()) 
 
-# Constructing plot 4: Percentage of people describing drug abuse as the most serious problem facing schools
+#Constructing plot 4: Percentage of people describing drug abuse as the most serious problem facing schools
 
 #Source: http://www.albany.edu/sourcebook/ind/DRUGS.Public_opinion.1.html
 
@@ -100,7 +100,7 @@ p4 <- ggplot(drugplotMostProblem, aes(xyr)) +
   theme(axis.title.x = element_blank()) +
   theme(axis.title.y = element_blank()) 
 
-# Initial construction of the model
+#Initial construction of the model
 
 drugsMod1 = read.xlsx("Drugs.xlsx", sheetIndex = 6)
 
@@ -113,7 +113,7 @@ sch <- drugsMod1$schools
 
 mod1frame <- data.frame(ann,pmp,pmood,arrests,pun,sch)
 
-# Constructing plot 5: Public desire to be "tough on crime"
+#Constructing plot 5: Public desire to be "tough on crime"
 
 #Source: http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1642977
 
@@ -133,7 +133,7 @@ cor(mod1frame$arrests,mod1frame$sch)
 cor(mod1frame$arrests,mod1frame$pmood)
 cor(mod1frame$arrests,mod1frame$pun)
 
-# Constructing plot 6: Drug Possesion/Use Arrest rate per 100,000
+#Constructing plot 6: Drug Possesion/Use Arrest rate per 100,000
 
 #Source: http://www.bjs.gov/content/pub/pdf/aus8009.pdf
 
@@ -153,7 +153,7 @@ p6 <- ggplot(drugplotRate, aes(xpyr)) +
   theme(axis.title.x = element_blank()) +
   theme(axis.title.y = element_blank())
 
-# Constructing plot 7: General measures of public opinion
+#Constructing plot 7: General measures of public opinion
 
 p7 <- ggplot(mod1frame, aes(ann)) +      
   geom_line(aes(y = pun, colour = "Public Punitiveness")) +   
