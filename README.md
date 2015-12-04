@@ -10,3 +10,5 @@ Sheets 1-3 and 7: http://www.albany.edu/sourcebook/ind/DRUGS.Public_opinion.1.ht
 Sheet 4: http://www.bjs.gov/content/pub/pdf/aus8009.pdf
 
 Sheet 5, Column I: http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1642977
+
+https://imdevsoftware.files.wordpress.com/2013/06/density-plot.png
