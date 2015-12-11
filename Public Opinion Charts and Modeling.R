@@ -53,8 +53,8 @@ p2 <- ggplot(drugplotProblem, aes(xyear)) +
   geom_line(aes(y = ynts, colour="Not too serious")) + 
   geom_line(aes(y = ynsa, colour="Not serious at all")) + 
   ggtitle("Severity of the problem of drug use in America") +
-  scale_x_continuous(breaks = c(2000,2003,2006,2009),limits=c(2000,2009))+
-  scale_y_continuous(breaks = c(0,10,20,30,40,50),limits=c(0,50))+
+  scale_x_continuous(breaks = c(2000,2003,2006,2009),limits = c(2000,2009))+
+  scale_y_continuous(breaks = c(0,10,20,30,40,50),limits = c(0,50))+
   theme_bw() + 
   theme(panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
   theme(axis.title.x = element_blank()) +
@@ -128,10 +128,10 @@ p5 <- ggplot(mod1frame, aes(ann)) +
   theme(axis.title.y = element_blank())
 
 #doing some correlations
-cor(mod1frame$arrests,mod1frame$pmp)
-cor(mod1frame$arrests,mod1frame$sch)
-cor(mod1frame$arrests,mod1frame$pmood)
-cor(mod1frame$arrests,mod1frame$pun)
+cor(mod1frame$arrests, mod1frame$pmp)
+cor(mod1frame$arrests, mod1frame$sch)
+cor(mod1frame$arrests, mod1frame$pmood)
+cor(mod1frame$arrests, mod1frame$pun)
 
 #Constructing plot 6: Drug Possesion/Use Arrest rate per 100,000
 
@@ -162,11 +162,12 @@ p7 <- ggplot(mod1frame, aes(ann)) +
   geom_line(aes(y = sch, colour = "Drugs Most Serious Problem in Schools")) + 
   ggtitle("General Measures of Public Opinion") +
   scale_x_continuous(breaks = c(1990,1995,2000,2005,2010),limits = c(1989,2010)) +
-  scale_y_continuous(breaks = c(0,10,20,30,40,50,60,70,80,90,100),limits=c(0,100)) +
+  scale_y_continuous(breaks = c(0,10,20,30,40,50,60,70,80,90,100),limits = c(0,100)) +
   theme_bw() + 
   theme(panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) + 
   theme(axis.title.x = element_blank()) +
   theme(axis.title.y = element_blank())
+  
   
 # Show different graphs together
 
