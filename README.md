@@ -10,3 +10,7 @@ Sheets 1-3 and 7: http://www.albany.edu/sourcebook/ind/DRUGS.Public_opinion.1.ht
 Sheet 4: http://www.bjs.gov/index.cfm?ty=pbdetail&iid=4515
 
 Sheet 5, Column I: http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1642977
+
+Sheet 6, Column C: http://www.policyagendas.org/page/trend-analysis#
+  - Dataset: Polic Moods
+  - Illegal Drug Production, Trafficking, and Control
