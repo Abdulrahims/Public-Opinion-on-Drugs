@@ -14,3 +14,7 @@ Sheet 5, Column I: http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1642977
 Sheet 6, Column C: http://www.policyagendas.org/page/trend-analysis#
   - Dataset: Polic Moods
   - Illegal Drug Production, Trafficking, and Control
+
+Sheet 8: http://www.albany.edu/sourcebook/pdf/t2902006.pdf
+  - Cooperative Institutional Research Program Fresh -
+man Survey
