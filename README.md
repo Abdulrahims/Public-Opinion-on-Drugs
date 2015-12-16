@@ -5,7 +5,11 @@ Data: https://docs.google.com/spreadsheets/d/1BRtrG_5DUXXDjF1qEUtRcv0MpTxb4MgLM6
 
 Sources:
 
-Sheets 1-3 and 7: http://www.albany.edu/sourcebook/ind/DRUGS.Public_opinion.1.html
+Sheet 1: http://www.gallup.com/poll/15520/drug-use-still-among-americans-top-worries.aspx
+
+Sheet 2: http://www.albany.edu/sourcebook/pdf/t200152011.pdf
+
+Sheet 3: http://www.albany.edu/sourcebook/pdf/t212012.pdf
 
 Sheet 4: http://www.bjs.gov/index.cfm?ty=pbdetail&iid=4515
 
@@ -15,6 +19,7 @@ Sheet 6, Column C: http://www.policyagendas.org/page/trend-analysis#
   - Dataset: Polic Moods
   - Illegal Drug Production, Trafficking, and Control
 
+Sheet 7: http://www.albany.edu/sourcebook/pdf/t242011.pdf
+
 Sheet 8: http://www.albany.edu/sourcebook/pdf/t2902006.pdf
-  - Cooperative Institutional Research Program Fresh -
-man Survey
+  - Cooperative Institutional Research Program Freshman Survey
