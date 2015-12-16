@@ -5,9 +5,7 @@ library(reshape)
 library(gridExtra)
 library(xlsx)
 
-#Constructing plot 1: Level of personal worry about drug use
-
-#Source: http://www.albany.edu/sourcebook/ind/DRUGS.Public_opinion.1.html
+# Constructing plot 1: Level of personal worry about drug use
 
 drugsWorry <- read.xlsx("Drugs.xlsx", sheetIndex = 1)
 
@@ -31,9 +29,7 @@ p1 <- ggplot(drugplotWorry, aes(x)) +
   theme(axis.title.x = element_blank()) +
   theme(axis.title.y = element_blank())
 
-#Constructing plot 2: Opinon on the severity of the drug problem in America
-
-#Source: http://www.albany.edu/sourcebook/ind/DRUGS.Public_opinion.1.html
+# Constructing plot 2: Opinon on the severity of the drug problem in America
 
 drugsProblem <- read.xlsx("Drugs.xlsx", sheetIndex = 2)
 
@@ -60,9 +56,7 @@ p2 <- ggplot(drugplotProblem, aes(xyear)) +
   theme(axis.title.x = element_blank()) +
   theme(axis.title.y = element_blank()) 
 
-#Constructing plot 3: Percantage of people describing drug abuse as the most serious problem facing America
-
-#Source: http://www.albany.edu/sourcebook/ind/DRUGS.Public_opinion.1.html
+# Constructing plot 3: Percantage of people describing drug abuse as the most serious problem facing America
 
 drugsMostProblem <- read.xlsx("Drugs.xlsx", sheetIndex = 3)
 
@@ -80,9 +74,7 @@ p3 <- ggplot(drugplotMostProblem, aes(xyr)) +
   theme(axis.title.x = element_blank()) +
   theme(axis.title.y = element_blank()) 
 
-#Constructing plot 4: Percentage of people describing drug abuse as the most serious problem facing schools
-
-#Source: http://www.albany.edu/sourcebook/ind/DRUGS.Public_opinion.1.html
+# Constructing plot 4: Percentage of people describing drug abuse as the most serious problem facing schools
 
 drugschools<- read.xlsx("Drugs.xlsx", sheetIndex = 7)
 
@@ -91,7 +83,7 @@ ysch <- drugschools$Percentage
 drugplotMostProblem <- data.frame(xsch, ysch)
 
 p4 <- ggplot(drugplotMostProblem, aes(xyr)) +       
-  geom_line(aes(y = ysch), colour="black") +        
+  geom_line(aes(y = ysch), colour="orange") +        
   ggtitle("Drugs Most Serious Problem in Schools") +
   scale_x_continuous(breaks = c(1990,1995,2000,2005,2010),limits = c(1989,2010))+
   ylim(c(0,40)) +
@@ -100,7 +92,7 @@ p4 <- ggplot(drugplotMostProblem, aes(xyr)) +
   theme(axis.title.x = element_blank()) +
   theme(axis.title.y = element_blank()) 
 
-#Initial construction of the model
+# Initial construction of the model
 
 drugsMod1 = read.xlsx("Drugs.xlsx", sheetIndex = 6)
 
@@ -110,12 +102,11 @@ pmood <- drugsMod1$Mood
 arrests <- drugsMod1$Rate
 pun <- drugsMod1$punitiveness
 sch <- drugsMod1$schools
+fresh <- drugsMod1$freshmen
 
-mod1frame <- data.frame(ann,pmp,pmood,arrests,pun,sch)
+mod1frame <- data.frame(ann,pmp,pmood,arrests,pun,sch,fresh)
 
-#Constructing plot 5: Public desire to be "tough on crime"
-
-#Source: http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1642977
+# Constructing plot 5: Public desire to be "tough on crime"
 
 p5 <- ggplot(mod1frame, aes(ann)) +      
   geom_line(aes(y = pun), colour = "purple") +      
@@ -127,15 +118,14 @@ p5 <- ggplot(mod1frame, aes(ann)) +
   theme(axis.title.x = element_blank()) +
   theme(axis.title.y = element_blank())
 
-#doing some correlations
+# doing some correlations
 cor(mod1frame$arrests, mod1frame$pmp)
 cor(mod1frame$arrests, mod1frame$sch)
 cor(mod1frame$arrests, mod1frame$pmood)
 cor(mod1frame$arrests, mod1frame$pun)
+cor(mod1frame$arrests, mod1frame$fresh)
 
-#Constructing plot 6: Drug Possesion/Use Arrest rate per 100,000
-
-#Source: http://www.bjs.gov/content/pub/pdf/aus8009.pdf
+# Constructing plot 6: Drug Possesion/Use Arrest rate per 100,000
 
 drugsArrestRate <- read.xlsx("Drugs.xlsx", sheetIndex = 4)
 
@@ -153,13 +143,32 @@ p6 <- ggplot(drugplotRate, aes(xpyr)) +
   theme(axis.title.x = element_blank()) +
   theme(axis.title.y = element_blank())
 
-#Constructing plot 7: General measures of public opinion
+# Constructing plot 7: College freshman on marijuana legalization ("agree strongly" or "agree somewhat")
 
-p7 <- ggplot(mod1frame, aes(ann)) +      
+freshmen <- read.xlsx("Drugs.xlsx", sheetIndex = 8)
+
+fy <- freshmen$Year
+fp <- freshmen$Percentage
+freshmen_legal <- data.frame(fy, fp)
+
+p7 <- ggplot(drugplotRate, aes(fy)) +      
+  geom_line(aes(y = fp), colour="blue") +      
+  ggtitle("College Freshman Supporting Legalization of Marijuana  ") +
+  scale_x_continuous(breaks = c(1990,1995,2000,2005,2010),limits = c(1990,2010))+
+  scale_y_continuous(breaks = c(0,10,20,30,40,50),limits = c(0,50))+
+  theme_bw() + 
+  theme(panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) + 
+  theme(axis.title.x = element_blank()) +
+  theme(axis.title.y = element_blank())
+
+# Constructing plot 8: General measures of public opinion
+
+p8 <- ggplot(mod1frame, aes(ann)) +      
   geom_line(aes(y = pun, colour = "Public Punitiveness")) +   
   geom_line(aes(y = pmp, colour = "Drug Abuse Most Serious Problem")) +  
   geom_line(aes(y = pmood, colour = "Drug Mood")) + 
   geom_line(aes(y = sch, colour = "Drugs Most Serious Problem in Schools")) + 
+  geom_line(aes(y = fresh, colour = "College Freshman Supporting Legalization of Marijuana")) + 
   ggtitle("General Measures of Public Opinion") +
   scale_x_continuous(breaks = c(1990,1995,2000,2005,2010),limits = c(1989,2010)) +
   scale_y_continuous(breaks = c(0,10,20,30,40,50,60,70,80,90,100),limits = c(0,100)) +
@@ -175,15 +184,14 @@ grid.arrange(p1, p2, ncol=1)
 
 grid.arrange(p3, p4,p5, p6, ncol=2)
 
-grid.arrange(p7,p6, ncol=1)
+grid.arrange(p8,p6, ncol=1)
 
 #linear model
 
-mod1.rate <- lm(arrests~pmp + pmood + pun + sch, data = drugsMod1)
+mod1.rate <- lm(arrests~pmp + pmood + pun + sch + fresh, data = drugsMod1)
 
 summary(mod1.rate)
 
 # Plotting the residuals
 
-plot(y=mod1.rate$residuals, x=mod1.rate$fitted.values, xlab="fitted values", ylab="residuals")
-
+plot(y = mod1.rate$residuals, x = mod1.rate$fitted.values, xlab = "fitted values", ylab = "residuals")
