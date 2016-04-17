@@ -151,7 +151,7 @@ fy <- freshmen$Year
 fp <- freshmen$Percentage
 freshmen_legal <- data.frame(fy, fp)
 
-p7 <- ggplot(drugplotRate, aes(fy)) +      
+p7 <- ggplot(freshmen_legal, aes(fy)) +      
   geom_line(aes(y = fp), colour="blue") +      
   ggtitle("College Freshman Supporting Legalization of Marijuana  ") +
   scale_x_continuous(breaks = c(1990,1995,2000,2005,2010),limits = c(1990,2010))+
@@ -176,8 +176,8 @@ p8 <- ggplot(mod1frame, aes(ann)) +
   theme(panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) + 
   theme(axis.title.x = element_blank()) +
   theme(axis.title.y = element_blank())
-  
-  
+
+
 # Show different graphs together
 
 grid.arrange(p1, p2, ncol=1)
@@ -188,10 +188,18 @@ grid.arrange(p8,p6, ncol=1)
 
 #linear model
 
+#This includes the general public mood and college freshmen opinions, which
+#run counter to the narrative of drug punitiveness, and thus reduce the 
+#effectiveness of the model
+
 mod1.rate <- lm(arrests~pmp + pmood + pun + sch + fresh, data = drugsMod1)
 
 summary(mod1.rate)
 
+#Remove the pmood and freshmen variables
+mod1.rate <- lm(arrests~pmp + pun + sch , data = drugsMod1)
+
 # Plotting the residuals
 
 plot(y = mod1.rate$residuals, x = mod1.rate$fitted.values, xlab = "fitted values", ylab = "residuals")
+
